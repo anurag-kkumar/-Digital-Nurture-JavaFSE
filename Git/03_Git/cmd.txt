@@ -1,0 +1,131 @@
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git branch GitNewBranch
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git branch -a
+  GitNewBranch
+* master
+  remotes/origin/master
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ git branch
+* GitNewBranch
+  master
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ touch file1.txt
+touch file2.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ echo "This is file 1" > file1.txt
+echo "This is file 2" > file2.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ ls
+file1.txt  file2.txt  logs/  welcome.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ git status
+On branch GitNewBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ git add .
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ git commit -m "Added files in GitNewBranch"
+[GitNewBranch 7ed90f2] Added files in GitNewBranch
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitNewBranch)
+$ git checkout master
+Switched to branch 'master'
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git diff master GitNewBranch
+diff --git a/file1.txt b/file1.txt
+new file mode 100644
+index 0000000..6a00e12
+--- /dev/null
++++ b/file1.txt
+@@ -0,0 +1 @@
++This is file 1
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..4ab7e6d
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++This is file 2
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git push -u origin GitNewBranch
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 389 bytes | 389.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'GitNewBranch' on GitHub by visiting:
+remote:      https://github.com/anurag-kkumar/GitDemo/pull/new/GitNewBranch
+remote:
+To https://github.com/anurag-kkumar/GitDemo.git
+ * [new branch]      GitNewBranch -> GitNewBranch
+branch 'GitNewBranch' set up to track 'origin/GitNewBranch'.
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git merge GitNewBranch
+Updating 6e17cb7..7ed90f2
+Fast-forward
+ file1.txt | 1 +
+ file2.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git branch -a
+  GitNewBranch
+* master
+  remotes/origin/GitNewBranch
+  remotes/origin/master
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git log --oneline --graph --decorate
+* 7ed90f2 (HEAD -> master, origin/GitNewBranch, GitNewBranch) Added files in GitNewBranch
+* 6e17cb7 (origin/master) Added .gitignore to ignore log files and folders
+* 77251ac add txt file
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ ls
+file1.txt  file2.txt  logs/  welcome.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ ^C
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was 7ed90f2).
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/anurag-kkumar/GitDemo.git
+   6e17cb7..7ed90f2  master -> master
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$
