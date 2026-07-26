@@ -1,0 +1,99 @@
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git checkout -b GitWork
+Switched to a new branch 'GitWork'
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitWork)
+$ touch hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitWork)
+$ echo "<message>Hello from GitWork</message>" > hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitWork)
+$ cat hello.xml
+<message>Hello from GitWork</message>
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitWork)
+$ git add hello.xml
+git commit -m "Added hello.xml in GitWork"
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[GitWork ee08d8f] Added hello.xml in GitWork
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (GitWork)
+$ git checkout master
+Switched to branch 'master'
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ touch hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ echo "<message>Hello from Master</message>" > hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ cat hello.xml
+<message>Hello from Master</message>
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git add hello.xml
+git commit -m "Added hello.xml in master"
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[master 81fcfcd] Added hello.xml in master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git log --oneline --graph --decorate --all
+* 81fcfcd (HEAD -> master) Added hello.xml in master
+| * ee08d8f (GitWork) Added hello.xml in GitWork
+|/
+* 7ed90f2 (origin/master, origin/GitNewBranch) Added files in GitNewBranch
+* 6e17cb7 Added .gitignore to ignore log files and folders
+* 77251ac add txt file
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git diff master GitWork
+diff --git a/hello.xml b/hello.xml
+index 3fa01db..84f3217 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1 +1 @@
+-<message>Hello from Master</message>
++<message>Hello from GitWork</message>
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master|MERGING)
+$ cat hello.xml
+<<<<<<< HEAD
+<message>Hello from Master</message>
+=======
+<message>Hello from GitWork</message>
+>>>>>>> GitWork
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master|MERGING)
+$ echo "<message>Hello from Master and GitWork</message>" > hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master|MERGING)
+$ git add hello.xml
+git commit -m "Resolved merge conflict in hello.xml"
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+[master 88b6ac1] Resolved merge conflict in hello.xml
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git merge GitWork
+Already up to date.
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git branch -d GitWork
+Deleted branch GitWork (was ee08d8f).
+
