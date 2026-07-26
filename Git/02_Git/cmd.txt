@@ -1,0 +1,59 @@
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ mkdir logs
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ cd logs
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit/logs (master)
+$ touch error.log
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit/logs (master)
+$ cd ..
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ ls -la
+total 16
+drwxr-xr-x 1 Hp 197121 0 Jul 26 22:17 ./
+drwxr-xr-x 1 Hp 197121 0 Jul 26 10:51 ../
+drwxr-xr-x 1 Hp 197121 0 Jul 26 10:59 .git/
+-rw-r--r-- 1 Hp 197121 0 Jul 26 22:17 .gitignore
+drwxr-xr-x 1 Hp 197121 0 Jul 26 22:16 logs/
+-rw-r--r-- 1 Hp 197121 0 Jul 26 10:54 welcome.txt
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ echo .gitignore
+.gitignore
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git add .gitignore
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git commit -m "Added .gitignore to ignore log files and folders"
+[master 6e17cb7] Added .gitignore to ignore log files and folders
+ 1 file changed, 5 insertions(+)
+ create mode 100644 .gitignore
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Hp@LAPTOP-5RTKE8BP MINGW64 ~/other/OneDrive/Desktop/cogdoc/cognizatGit (master)
+$ git push origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/anurag-kkumar/GitDemo.git
+   77251ac..6e17cb7  master -> master
